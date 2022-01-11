@@ -1,0 +1,87 @@
+<hero-header></hero-header>
+
+<main>
+    <ng-template [ngIf]="isLoading">
+        <section class="hero__names">
+            <h1>{{hero.name}}</h1>
+        </section>
+    
+        <section class="hero__status">
+            <img 
+            [src]="hero.image.url" 
+            [alt]="hero.name"
+            >
+    
+            <article class="hero__status__statistics">
+                <section>
+                    <h3>{{hero.biography["full-name"]}}</h3>
+                    <ol *ngFor="let valor of hero.powerstats | keyvalue">
+                        <li>
+                            {{valor.key }}
+                            <strong>
+                                {{valor.value}}
+                            </strong>
+                        </li>
+                    </ol>
+                
+                 
+                    <div class="detalhes" style="margin: 20px 0 ;">
+                           
+                    <ol >
+                        <li>
+                            Alter Egos:
+                            <strong>
+                                {{hero.biography["alter-egos"]}}
+                            </strong>
+                        </li>
+
+                        <li>
+                            Lugar de Nascimento
+                            <strong>
+                                {{hero.biography["place-of-birth"]}}
+                            </strong>
+                        </li>
+                        <li>
+                            Primeira aparição
+                            <strong>
+                                {{hero.biography["first-appearance"]}}
+                            </strong>
+                        </li>
+
+                        <li>
+                            Editora
+                            <strong>
+                                {{hero.biography.publisher}}
+                            </strong>
+                        </li>
+                        <li>
+                            Sexo
+                            <strong>
+                                {{hero.appearance.gender}}
+                            </strong>
+                        </li>
+                        <li>
+                            Raça
+                            <strong>
+                                {{hero.appearance.race}}
+                            </strong>
+                        </li>
+                        <li>
+                            Profissão
+                            <strong>
+                                {{hero.work.occupation}}
+                            </strong>
+                        </li>
+                    </ol>
+                    </div>   
+
+                </section>
+                <a 
+                [routerLink]="['']" 
+                class="btn btn__secondary">
+                    voltar
+                </a>
+            </article>
+        </section>
+    </ng-template>
+</main>
